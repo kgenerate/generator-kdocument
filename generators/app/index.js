@@ -105,38 +105,53 @@ module.exports = class extends Generator {
 
     async writing() {
         this.fs.copyTpl(
-            this.templatePath("README.md.ejs"),
+            this.templatePath("README.md"),
             this.destinationPath("README.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("mkdocs.yml.ejs"),
+            this.templatePath("mkdocs.yml"),
             this.destinationPath("mkdocs.yml"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("LICENSE.md.ejs"),
+            this.templatePath("LICENSE.md"),
             this.destinationPath("LICENSE.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("CONTRIBUTING.md.ejs"),
+            this.templatePath("CONTRIBUTING.md"),
             this.destinationPath("CONTRIBUTING.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("CHANGELOG.md.ejs"),
+            this.templatePath("CHANGELOG.md"),
             this.destinationPath("CHANGELOG.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath(".gitignore.ejs"),
+            this.templatePath(".gitignore"),
             this.destinationPath(".gitignore"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("docs/index.md.ejs"),
+            this.templatePath("docs/index.md"),
             this.destinationPath("docs/index.md"),
+            this
+        );
+        this.fs.copyTpl(
+            this.templatePath("docs/srs_user.md"),
+            this.destinationPath("docs/srs_user.md"),
+            this
+        );
+        this.fs.copyTpl(
+            this.templatePath("docs/srs_system.md"),
+            this.destinationPath("docs/srs_system.md"),
+            this
+        );
+        this.fs.copyTpl(
+            this.templatePath("docs/srs_system.md"),
+            this.destinationPath("docs/srs_system.md"),
             this
         );
     }

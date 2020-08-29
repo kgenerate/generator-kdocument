@@ -1,9 +1,15 @@
 site_name: <%= project.name %>
 nav:
     - Intro: index.md
-    - Plan: plan.md
-    - Define: define.md
-    - Design: design.md
+    - SRS Document:
+          - User Requirements: srs_user.md
+          - System Requirements: srs_system.md
+    - DDS Document:
+          - Model Diagram: dds_model.md
+          - Architecture Diagram: dds_architecture.md
+          - Access Specification: dds_access.md
+          - API Specification: dds_api.md
+          - UI Specification: dds_ui.md
 theme:
     name: "material"
 markdown_extensions:

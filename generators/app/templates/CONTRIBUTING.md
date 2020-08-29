@@ -61,15 +61,15 @@ The result of this stage is **DDS Document** or **Design Document Specification*
     2. TypeORM
     3. Hasura
     4. Entity Framework
-5. **API Specification**
-    1. OpenAPI Schema
-    2. GraphQL Schema
-    3. gRPC Schema
-6. **Role Specification**
+5. **Access Specification**
     1. Decision Matrix
     1. Preset Rule
     1. Row Permission
     1. Field Permission
+6. **API Specification**
+    1. OpenAPI Schema
+    2. GraphQL Schema
+    3. gRPC Schema
 7. **UI Specification**
     1. Wireframe (`Low fidelity`): AdobeXD, Sketch
     2. Prototype (`High fidelity`): AdobeXD, Sketch
@@ -197,49 +197,7 @@ For **Modelling** the application we must do these steps:
 
 ---
 
-### API Specification
-
-For defining application **API's** we must do these steps:
-
-1. Define **Root Nodes** for **CRUD Operations** on models
-
-    ```ts
-    type Query {
-        getAllUsers(filter)
-        getOneUser(id)
-
-        getAllBaskets(filter)
-        getOneBasket(id)
-
-        getAllItems(filter)
-        getOneItem(id)
-    }
-    type Mutation {
-        setAllUsers(filter, User[])
-        setOneUser(id, User)
-
-        setAllBaskets(filter, Basket[])
-        setOneBasket(id, Basket)
-
-        setAllItems(filter, Item[])
-        setOneItem(id, Item)
-    }
-    ```
-
-2. Define **Specific Operations** based on business
-
-    ```ts
-    type Query {
-        getMe()
-    }
-    type Mutation {
-        addItemToBasket(item, count)
-    }
-    ```
-
----
-
-### Role Specification
+### Access Specification
 
 For defining application **Authorization** we must do these steps:
 
@@ -472,6 +430,48 @@ For defining application **Authorization** we must do these steps:
         name;
         price;
         sellerId;
+    }
+    ```
+
+---
+
+### API Specification
+
+For defining application **API's** we must do these steps:
+
+1. Define **Root Nodes** for **CRUD Operations** on models
+
+    ```ts
+    type Query {
+        getAllUsers(filter)
+        getOneUser(id)
+
+        getAllBaskets(filter)
+        getOneBasket(id)
+
+        getAllItems(filter)
+        getOneItem(id)
+    }
+    type Mutation {
+        setAllUsers(filter, User[])
+        setOneUser(id, User)
+
+        setAllBaskets(filter, Basket[])
+        setOneBasket(id, Basket)
+
+        setAllItems(filter, Item[])
+        setOneItem(id, Item)
+    }
+    ```
+
+2. Define **Specific Operations** based on business
+
+    ```ts
+    type Query {
+        getMe()
+    }
+    type Mutation {
+        addItemToBasket(item, count)
     }
     ```
 
