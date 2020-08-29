@@ -26,6 +26,8 @@ mkdocs build
 mkdocs serve
 ```
 
+---
+
 ## Links
 
 <%= links.map(item => `- [${item.label}](${item.url})`).join("\n") %>
