@@ -14,11 +14,6 @@
 3. `mkdocs`
 4. `mkdocs-material`
 
-```sh
-pip3 install mkdocs
-pip3 install mkdocs-material
-```
-
 ## Building
 
 ```sh

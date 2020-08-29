@@ -130,6 +130,11 @@ module.exports = class extends Generator {
             this
         );
         this.fs.copyTpl(
+            this.templatePath(".gitlab-ci.yml"),
+            this.destinationPath(".gitlab-ci.yml"),
+            this
+        );
+        this.fs.copyTpl(
             this.templatePath(".gitignore"),
             this.destinationPath(".gitignore"),
             this
