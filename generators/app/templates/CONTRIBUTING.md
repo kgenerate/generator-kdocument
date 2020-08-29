@@ -584,8 +584,7 @@ There are many important concepts in implementing and coding the product based o
     1. **Major**: older product versions are not compatible
     2. **Minor**: added features
     3. **Patch**: fixed bugs
-4. Use [Git-Extras](https://github.com/tj/git-extras) to generate changelogs before finishing each release
-    1. `git changelog CHANGELOG.md`
+4. Change **CHANGELOG.md** before finishing every release
 
 ---
 
