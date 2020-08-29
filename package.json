@@ -1,0 +1,26 @@
+{
+    "name": "generator-kdocument",
+    "version": "0.1.0",
+    "description": "KoLiBer Document project generator",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kgenerate/generator-kdocument.git"
+    },
+    "files": [
+        "generators"
+    ],
+    "keywords": [
+        "yeoman-generator"
+    ],
+    "author": "KoLiBer",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/kgenerate/generator-kdocument/issues"
+    },
+    "homepage": "https://github.com/kgenerate/generator-kdocument#readme",
+    "dependencies": {
+        "chalk": "^4.1.0",
+        "inquirer-datepicker": "^2.0.0",
+        "yeoman-generator": "^4.11.0"
+    }
+}
