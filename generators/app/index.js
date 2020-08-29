@@ -150,8 +150,18 @@ module.exports = class extends Generator {
             this
         );
         this.fs.copyTpl(
-            this.templatePath("docs/srs_system.md"),
-            this.destinationPath("docs/srs_system.md"),
+            this.templatePath("docs/dds_model.md"),
+            this.destinationPath("docs/dds_model.md"),
+            this
+        );
+        this.fs.copyTpl(
+            this.templatePath("docs/dds_architecture.md"),
+            this.destinationPath("docs/dds_architecture.md"),
+            this
+        );
+        this.fs.copyTpl(
+            this.templatePath("docs/dds_access.md"),
+            this.destinationPath("docs/dds_access.md"),
             this
         );
     }
