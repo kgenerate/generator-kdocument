@@ -59,6 +59,7 @@ module.exports = class extends Generator {
                 ],
                 default: "Agile",
             },
+
             /**
              * Owner prompts
              */
@@ -74,6 +75,7 @@ module.exports = class extends Generator {
                 message: `Enter project ${Chalk.red("owner email")}:`,
                 default: "owner@gmail.com",
             },
+
             /**
              * Links prompts
              */
