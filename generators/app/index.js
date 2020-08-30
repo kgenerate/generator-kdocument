@@ -2,28 +2,14 @@ const Generator = require("yeoman-generator");
 const Chalk = require("chalk");
 
 module.exports = class extends Generator {
-    async _promptLoop(message, questions) {
-        const loop = await this.prompt({
-            type: "confirm",
-            name: "loop",
-            message: message,
-            default: true,
-        });
-
-        if (loop.loop) {
-            return [
-                await this.prompt(questions),
-                ...(await this._promptLoop(message, questions)),
-            ];
-        } else {
-            return [];
-        }
-    }
-
     async initializing() {
         this.env.adapter.promptModule.registerPrompt(
             "datepicker",
             require("inquirer-datepicker")
+        );
+        this.env.adapter.promptModule.registerPrompt(
+            "recursive",
+            require("inquirer-recursive")
         );
 
         this.log(
@@ -34,7 +20,7 @@ module.exports = class extends Generator {
     }
 
     async prompting() {
-        this.project = await this.prompt([
+        this.values = await this.prompt([
             {
                 type: "input",
                 name: "name",
@@ -82,25 +68,27 @@ module.exports = class extends Generator {
                 message: `Enter project ${Chalk.red("owner email")}:`,
                 default: "owner@gmail.com",
             },
+            {
+                type: "recursive",
+                name: "links",
+                message: `Add a new project ${Chalk.red("link")} ?`,
+                prompts: [
+                    {
+                        type: "input",
+                        name: "label",
+                        message: `Enter project link ${Chalk.red("label")}:`,
+                        default: "GitHub",
+                    },
+                    {
+                        type: "input",
+                        name: "url",
+                        message: `Enter project link ${Chalk.red("url")}:`,
+                        default:
+                            "https://github.com/kgenerate/generator-kdocument",
+                    },
+                ],
+            },
         ]);
-
-        this.links = await this._promptLoop(
-            `Add a new project ${Chalk.red("link")} ?`,
-            [
-                {
-                    type: "input",
-                    name: "label",
-                    message: `Enter project link ${Chalk.red("label")}:`,
-                    default: "GitHub",
-                },
-                {
-                    type: "input",
-                    name: "url",
-                    message: `Enter project link ${Chalk.red("url")}:`,
-                    default: "https://github.com/kgenerate/generator-kdocument",
-                },
-            ]
-        );
     }
 
     async writing() {

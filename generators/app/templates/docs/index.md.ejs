@@ -1,9 +1,9 @@
-# <%= project.name %>
+# <%= values.name %>
 
-<%= project.description %>
+<%= values.description %>
 
 ---
 
 ## Links
 
-<%= links.map(item => `- [${item.label}](${item.url})`).join("\n") %>
+<%= values.links.map(item => `-   [${item.label}](${item.url})`).join("\n") %>
