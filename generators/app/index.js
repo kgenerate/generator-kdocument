@@ -105,67 +105,67 @@ module.exports = class extends Generator {
 
     async writing() {
         this.fs.copyTpl(
-            this.templatePath("README.md"),
+            this.templatePath("README.md.ejs"),
             this.destinationPath("README.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("mkdocs.yml"),
+            this.templatePath("mkdocs.yml.ejs"),
             this.destinationPath("mkdocs.yml"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("LICENSE.md"),
+            this.templatePath("LICENSE.md.ejs"),
             this.destinationPath("LICENSE.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("CONTRIBUTING.md"),
+            this.templatePath("CONTRIBUTING.md.ejs"),
             this.destinationPath("CONTRIBUTING.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("CHANGELOG.md"),
+            this.templatePath("CHANGELOG.md.ejs"),
             this.destinationPath("CHANGELOG.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath(".gitlab-ci.yml"),
+            this.templatePath(".gitlab-ci.yml.ejs"),
             this.destinationPath(".gitlab-ci.yml"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath(".gitignore"),
+            this.templatePath(".gitignore.ejs"),
             this.destinationPath(".gitignore"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("docs/index.md"),
+            this.templatePath("docs/index.md.ejs"),
             this.destinationPath("docs/index.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("docs/srs_user.md"),
+            this.templatePath("docs/srs_user.md.ejs"),
             this.destinationPath("docs/srs_user.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("docs/srs_system.md"),
+            this.templatePath("docs/srs_system.md.ejs"),
             this.destinationPath("docs/srs_system.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("docs/dds_model.md"),
+            this.templatePath("docs/dds_model.md.ejs"),
             this.destinationPath("docs/dds_model.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("docs/dds_architecture.md"),
+            this.templatePath("docs/dds_architecture.md.ejs"),
             this.destinationPath("docs/dds_architecture.md"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("docs/dds_access.md"),
+            this.templatePath("docs/dds_access.md.ejs"),
             this.destinationPath("docs/dds_access.md"),
             this
         );
