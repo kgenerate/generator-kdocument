@@ -8,8 +8,8 @@ module.exports = class extends Generator {
             require("inquirer-datepicker")
         );
         this.env.adapter.promptModule.registerPrompt(
-            "recursive",
-            require("inquirer-recursive")
+            "loop",
+            require("inquirer-loop")(this)
         );
 
         this.log(
@@ -80,7 +80,7 @@ module.exports = class extends Generator {
              * Links prompts
              */
             {
-                type: "recursive",
+                type: "loop",
                 name: "links",
                 message: `Add a new project ${Chalk.red("link")} ?`,
                 prompts: [
