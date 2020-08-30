@@ -22,7 +22,7 @@ module.exports = class extends Generator {
     async prompting() {
         this.values = await this.prompt([
             /**
-             * Basic prompts
+             * Project prompts
              */
             {
                 type: "input",
