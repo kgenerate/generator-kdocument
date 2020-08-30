@@ -584,7 +584,7 @@ There are many important concepts in implementing and coding the product based o
     1. **Major**: older product versions are not compatible
     2. **Minor**: added features
     3. **Patch**: fixed bugs
-4. Change **CHANGELOG.md** before finishing every release
+4. Add [Change Logs](https://keepachangelog.com/) before finishing each **Release** to your `CHANGELOG.md` file
 
 ---
 
