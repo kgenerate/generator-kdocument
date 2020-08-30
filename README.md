@@ -22,10 +22,6 @@ yo kdocument
 
 ---
 
-## Contributions
-
--   [KoLiBer](https://koliber.ir)
-
 ## License
 
 This project is licensed under the [MIT license](LICENSE.md).  
