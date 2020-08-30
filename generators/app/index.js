@@ -21,6 +21,9 @@ module.exports = class extends Generator {
 
     async prompting() {
         this.values = await this.prompt([
+            /**
+             * Project prompts
+             */
             {
                 type: "input",
                 name: "name",
@@ -56,6 +59,9 @@ module.exports = class extends Generator {
                 ],
                 default: "Agile",
             },
+            /**
+             * Owner prompts
+             */
             {
                 type: "input",
                 name: "ownerName",
@@ -68,6 +74,9 @@ module.exports = class extends Generator {
                 message: `Enter project ${Chalk.red("owner email")}:`,
                 default: "owner@gmail.com",
             },
+            /**
+             * Links prompts
+             */
             {
                 type: "recursive",
                 name: "links",
@@ -92,14 +101,17 @@ module.exports = class extends Generator {
     }
 
     async writing() {
+        /**
+         * Copy basic templates
+         */
         this.fs.copyTpl(
-            this.templatePath("README.md.ejs"),
-            this.destinationPath("README.md"),
+            this.templatePath(".gitignore.ejs"),
+            this.destinationPath(".gitignore"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("mkdocs.yml.ejs"),
-            this.destinationPath("mkdocs.yml"),
+            this.templatePath("README.md.ejs"),
+            this.destinationPath("README.md"),
             this
         );
         this.fs.copyTpl(
@@ -108,25 +120,37 @@ module.exports = class extends Generator {
             this
         );
         this.fs.copyTpl(
-            this.templatePath("CONTRIBUTING.md.ejs"),
-            this.destinationPath("CONTRIBUTING.md"),
-            this
-        );
-        this.fs.copyTpl(
             this.templatePath("CHANGELOG.md.ejs"),
             this.destinationPath("CHANGELOG.md"),
             this
         );
         this.fs.copyTpl(
+            this.templatePath("CONTRIBUTING.md.ejs"),
+            this.destinationPath("CONTRIBUTING.md"),
+            this
+        );
+
+        /**
+         * Copy mkdocs config template
+         */
+        this.fs.copyTpl(
+            this.templatePath("mkdocs.yml.ejs"),
+            this.destinationPath("mkdocs.yml"),
+            this
+        );
+
+        /**
+         * Copy CD file template
+         */
+        this.fs.copyTpl(
             this.templatePath(".gitlab-ci.yml.ejs"),
             this.destinationPath(".gitlab-ci.yml"),
             this
         );
-        this.fs.copyTpl(
-            this.templatePath(".gitignore.ejs"),
-            this.destinationPath(".gitignore"),
-            this
-        );
+
+        /**
+         * Add documents templates
+         */
         this.fs.copyTpl(
             this.templatePath("docs/index.md.ejs"),
             this.destinationPath("docs/index.md"),
