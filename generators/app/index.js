@@ -22,7 +22,7 @@ module.exports = class extends Generator {
     async prompting() {
         this.values = await this.prompt([
             /**
-             * Project prompts
+             * Basic prompts
              */
             {
                 type: "input",
@@ -104,7 +104,7 @@ module.exports = class extends Generator {
 
     async writing() {
         /**
-         * Copy basic templates
+         * Copy Basic templates
          */
         this.fs.copyTpl(
             this.templatePath(".gitignore.ejs"),
@@ -133,7 +133,7 @@ module.exports = class extends Generator {
         );
 
         /**
-         * Copy mkdocs config template
+         * Copy Mkdocs config template
          */
         this.fs.copyTpl(
             this.templatePath("mkdocs.yml.ejs"),
@@ -151,7 +151,7 @@ module.exports = class extends Generator {
         );
 
         /**
-         * Add documents templates
+         * Copy Documents templates
          */
         this.fs.copyTpl(
             this.templatePath("docs/index.md.ejs"),
