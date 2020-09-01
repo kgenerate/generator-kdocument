@@ -2,6 +2,16 @@ const Generator = require("yeoman-generator");
 const Chalk = require("chalk");
 
 module.exports = class extends Generator {
+    get values() {
+        return this.vals || {};
+    }
+    set values(object) {
+        this.vals = {
+            ...this.vals,
+            ...object,
+        };
+    }
+
     async initializing() {
         this.env.adapter.promptModule.registerPrompt(
             "datepicker",
@@ -20,10 +30,10 @@ module.exports = class extends Generator {
     }
 
     async prompting() {
+        /**
+         * Project prompts
+         */
         this.values = await this.prompt([
-            /**
-             * Project prompts
-             */
             {
                 type: "input",
                 name: "name",
@@ -59,10 +69,12 @@ module.exports = class extends Generator {
                 ],
                 default: "Agile",
             },
+        ]);
 
-            /**
-             * Owner prompts
-             */
+        /**
+         * Owner prompts
+         */
+        this.values = await this.prompt([
             {
                 type: "input",
                 name: "ownerName",
@@ -75,15 +87,17 @@ module.exports = class extends Generator {
                 message: `Enter project ${Chalk.red("owner email")}:`,
                 default: "owner@gmail.com",
             },
+        ]);
 
-            /**
-             * Links prompts
-             */
+        /**
+         * Links prompts
+         */
+        this.values = await this.prompt([
             {
                 type: "loop",
                 name: "links",
                 message: `Add a new project ${Chalk.red("link")} ?`,
-                prompts: [
+                questions: [
                     {
                         type: "input",
                         name: "label",
