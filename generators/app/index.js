@@ -2,15 +2,13 @@ const Generator = require("yeoman-generator");
 const Chalk = require("chalk");
 
 module.exports = class extends Generator {
-    get values() {
-        return this.vals || {};
-    }
-    set values(object) {
-        this.vals = {
-            ...this.vals,
-            ...object,
+    answers = {};
+    addAnswers = async (questions) => {
+        this.answers = {
+            ...this.answers,
+            ...(await this.prompt(questions)),
         };
-    }
+    };
 
     async initializing() {
         this.env.adapter.promptModule.registerPrompt(
@@ -33,29 +31,29 @@ module.exports = class extends Generator {
         /**
          * Project prompts
          */
-        this.values = await this.prompt([
+        await this.addAnswers([
             {
                 type: "input",
-                name: "name",
+                name: "projectName",
                 message: `Enter project ${Chalk.red("name")}:`,
                 default: this.appname,
             },
             {
                 type: "input",
-                name: "description",
+                name: "projectDescription",
                 message: `Enter project ${Chalk.red("description")}:`,
                 default: this.appname,
             },
             {
                 type: "datepicker",
-                name: "beginDate",
+                name: "projectBeginDate",
                 message: `Enter project ${Chalk.red("begin date")}:`,
                 format: ["Y", "/", "MM", "/", "DD"],
                 default: new Date(),
             },
             {
                 type: "list",
-                name: "sdlc",
+                name: "projectSDLC",
                 message: `Enter project ${Chalk.red(
                     "SDLC"
                 )} (Software Development Lifecycle):`,
@@ -74,17 +72,17 @@ module.exports = class extends Generator {
         /**
          * Owner prompts
          */
-        this.values = await this.prompt([
+        await this.addAnswers([
             {
                 type: "input",
                 name: "ownerName",
-                message: `Enter project ${Chalk.red("owner name")}:`,
+                message: `Enter owner ${Chalk.red("name")}:`,
                 default: "Owner",
             },
             {
                 type: "input",
                 name: "ownerEmail",
-                message: `Enter project ${Chalk.red("owner email")}:`,
+                message: `Enter owner ${Chalk.red("email")}:`,
                 default: "owner@gmail.com",
             },
         ]);
@@ -92,7 +90,7 @@ module.exports = class extends Generator {
         /**
          * Links prompts
          */
-        this.values = await this.prompt([
+        await this.addAnswers([
             {
                 type: "loop",
                 name: "links",
@@ -101,13 +99,13 @@ module.exports = class extends Generator {
                     {
                         type: "input",
                         name: "label",
-                        message: `Enter project link ${Chalk.red("label")}:`,
+                        message: `Enter link ${Chalk.red("label")}:`,
                         default: "GitHub",
                     },
                     {
                         type: "input",
                         name: "url",
-                        message: `Enter project link ${Chalk.red("url")}:`,
+                        message: `Enter link ${Chalk.red("url")}:`,
                         default:
                             "https://github.com/kgenerate/generator-kdocument",
                     },
