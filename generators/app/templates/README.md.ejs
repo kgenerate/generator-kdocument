@@ -1,9 +1,9 @@
-# <%= values.name %>
+# <%= answers.projectName %>
 
-![SDLC](https://img.shields.io/badge/SDLC-<%= values.sdlc %>-informational)
-![Date](https://img.shields.io/badge/BeginDate-<%= values.beginDate.toLocaleDateString() %>-success)
+![SDLC](https://img.shields.io/badge/SDLC-<%= answers.projectSDLC %>-informational)
+![Date](https://img.shields.io/badge/BeginDate-<%= answers.projectBeginDate.toLocaleDateString() %>-success)
 
-<%= values.description %>
+<%= answers.projectDescription %>
 
 ---
 
@@ -31,7 +31,7 @@ mkdocs serve
 ## Links
 
 <%= 
-    values.links.map(item => 
+    answers.links.map(item => 
         `-   [${item.label}](${item.url})`
     ).join("\n") 
 %>
@@ -39,4 +39,4 @@ mkdocs serve
 ## License
 
 This project is licensed under the [MIT license](LICENSE.md).  
-Copyright (c) <%= values.ownerName %> (<%= values.ownerEmail %>)
+Copyright (c) <%= answers.ownerName %> (<%= answers.ownerEmail %>)

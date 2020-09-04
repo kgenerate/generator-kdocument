@@ -1,13 +1,13 @@
-# <%= values.name %>
+# <%= answers.projectName %>
 
-<%= values.description %>
+<%= answers.projectDescription %>
 
 ---
 
 ## Links
 
 <%= 
-    values.links.map(item => 
+    answers.links.map(item => 
         `-   [${item.label}](${item.url})`
     ).join("\n") 
 %>
