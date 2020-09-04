@@ -2,28 +2,22 @@ const Generator = require("yeoman-generator");
 const Chalk = require("chalk");
 
 module.exports = class extends Generator {
-    async _promptLoop(message, questions) {
-        const loop = await this.prompt({
-            type: "confirm",
-            name: "loop",
-            message: message,
-            default: true,
-        });
-
-        if (loop.loop) {
-            return [
-                await this.prompt(questions),
-                ...(await this._promptLoop(message, questions)),
-            ];
-        } else {
-            return [];
-        }
-    }
+    answers = {};
+    addAnswers = async (questions) => {
+        this.answers = {
+            ...this.answers,
+            ...(await this.prompt(questions)),
+        };
+    };
 
     async initializing() {
         this.env.adapter.promptModule.registerPrompt(
             "datepicker",
             require("inquirer-datepicker")
+        );
+        this.env.adapter.promptModule.registerPrompt(
+            "loop",
+            require("inquirer-loop")(this)
         );
 
         this.log(
@@ -34,29 +28,32 @@ module.exports = class extends Generator {
     }
 
     async prompting() {
-        this.project = await this.prompt([
+        /**
+         * Project prompts
+         */
+        await this.addAnswers([
             {
                 type: "input",
-                name: "name",
+                name: "projectName",
                 message: `Enter project ${Chalk.red("name")}:`,
                 default: this.appname,
             },
             {
                 type: "input",
-                name: "description",
+                name: "projectDescription",
                 message: `Enter project ${Chalk.red("description")}:`,
                 default: this.appname,
             },
             {
                 type: "datepicker",
-                name: "beginDate",
+                name: "projectBeginDate",
                 message: `Enter project ${Chalk.red("begin date")}:`,
                 format: ["Y", "/", "MM", "/", "DD"],
                 default: new Date(),
             },
             {
                 type: "list",
-                name: "sdlc",
+                name: "projectSDLC",
                 message: `Enter project ${Chalk.red(
                     "SDLC"
                 )} (Software Development Lifecycle):`,
@@ -70,48 +67,65 @@ module.exports = class extends Generator {
                 ],
                 default: "Agile",
             },
+        ]);
+
+        /**
+         * Owner prompts
+         */
+        await this.addAnswers([
             {
                 type: "input",
                 name: "ownerName",
-                message: `Enter project ${Chalk.red("owner name")}:`,
+                message: `Enter owner ${Chalk.red("name")}:`,
                 default: "Owner",
             },
             {
                 type: "input",
                 name: "ownerEmail",
-                message: `Enter project ${Chalk.red("owner email")}:`,
+                message: `Enter owner ${Chalk.red("email")}:`,
                 default: "owner@gmail.com",
             },
         ]);
 
-        this.links = await this._promptLoop(
-            `Add a new project ${Chalk.red("link")} ?`,
-            [
-                {
-                    type: "input",
-                    name: "label",
-                    message: `Enter project link ${Chalk.red("label")}:`,
-                    default: "GitHub",
-                },
-                {
-                    type: "input",
-                    name: "url",
-                    message: `Enter project link ${Chalk.red("url")}:`,
-                    default: "https://github.com/kgenerate/generator-kdocument",
-                },
-            ]
-        );
+        /**
+         * Links prompts
+         */
+        await this.addAnswers([
+            {
+                type: "loop",
+                name: "links",
+                message: `Add a new project ${Chalk.red("link")} ?`,
+                questions: [
+                    {
+                        type: "input",
+                        name: "label",
+                        message: `Enter link ${Chalk.red("label")}:`,
+                        default: "GitHub",
+                    },
+                    {
+                        type: "input",
+                        name: "url",
+                        message: `Enter link ${Chalk.red("url")}:`,
+                        default:
+                            "https://github.com/kgenerate/generator-kdocument",
+                    },
+                ],
+            },
+        ]);
     }
 
     async writing() {
+        /**
+         * Copy Basic templates
+         */
         this.fs.copyTpl(
-            this.templatePath("README.md.ejs"),
-            this.destinationPath("README.md"),
+            this.templatePath(".gitignore.ejs"),
+            this.destinationPath(".gitignore"),
             this
         );
         this.fs.copyTpl(
-            this.templatePath("mkdocs.yml.ejs"),
-            this.destinationPath("mkdocs.yml"),
+            this.templatePath("README.md.ejs"),
+            this.destinationPath("README.md"),
             this
         );
         this.fs.copyTpl(
@@ -120,25 +134,37 @@ module.exports = class extends Generator {
             this
         );
         this.fs.copyTpl(
-            this.templatePath("CONTRIBUTING.md.ejs"),
-            this.destinationPath("CONTRIBUTING.md"),
-            this
-        );
-        this.fs.copyTpl(
             this.templatePath("CHANGELOG.md.ejs"),
             this.destinationPath("CHANGELOG.md"),
             this
         );
         this.fs.copyTpl(
+            this.templatePath("CONTRIBUTING.md.ejs"),
+            this.destinationPath("CONTRIBUTING.md"),
+            this
+        );
+
+        /**
+         * Copy Mkdocs config template
+         */
+        this.fs.copyTpl(
+            this.templatePath("mkdocs.yml.ejs"),
+            this.destinationPath("mkdocs.yml"),
+            this
+        );
+
+        /**
+         * Copy CD file template
+         */
+        this.fs.copyTpl(
             this.templatePath(".gitlab-ci.yml.ejs"),
             this.destinationPath(".gitlab-ci.yml"),
             this
         );
-        this.fs.copyTpl(
-            this.templatePath(".gitignore.ejs"),
-            this.destinationPath(".gitignore"),
-            this
-        );
+
+        /**
+         * Copy Documents templates
+         */
         this.fs.copyTpl(
             this.templatePath("docs/index.md.ejs"),
             this.destinationPath("docs/index.md"),

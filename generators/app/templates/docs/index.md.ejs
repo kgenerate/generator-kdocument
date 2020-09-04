@@ -1,9 +1,13 @@
-# <%= project.name %>
+# <%= answers.projectName %>
 
-<%= project.description %>
+<%= answers.projectDescription %>
 
 ---
 
 ## Links
 
-<%= links.map(item => `- [${item.label}](${item.url})`).join("\n") %>
+<%= 
+    answers.links.map(item => 
+        `-   [${item.label}](${item.url})`
+    ).join("\n") 
+%>
