@@ -1,6 +1,6 @@
 # Access Specification
 
-## Decision Matrices
+## Access Control Matrices (ACM)
 
 ## Preset Rules
 
