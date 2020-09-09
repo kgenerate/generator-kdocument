@@ -1,13 +1,12 @@
 # Model Diagram
 
 <!--prettier-ignore-->
-!!! tip "Model Diagram"
-    There are two types of models:
+!!! tip "Model Designing"
+    For designing the **Model** we use these tools:
 
-    1. **Domain Model**: ER Diagram
-    2. **Data Model**: Class Diagram
-
----
+    1. [draw.io](https://app.diagrams.net/)
+    2. [Mermaid](https://mermaid-js.github.io/mermaid/)
+    3. [Visual Paradigm](https://www.visual-paradigm.com/)
 
 ## Domain Models (ER Diagram)
 

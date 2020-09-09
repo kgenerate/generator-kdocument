@@ -5,9 +5,11 @@ nav:
           - User Requirements: srs_user.md
           - System Requirements: srs_system.md
     - DDS Document:
+          - BPMN Diagram: dds_bpmn.md
           - Model Diagram: dds_model.md
           - Architecture Diagram: dds_architecture.md
           - Access Specification: dds_access.md
+          - UI Specification: dds_ui.md
 theme:
     name: "material"
 markdown_extensions:
