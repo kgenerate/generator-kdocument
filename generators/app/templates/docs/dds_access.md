@@ -1,6 +1,6 @@
 # Access Specification
 
-## Access Control Matrices (ACM)
+## Access Control List (ACL)
 
 ## Preset Rules
 
