@@ -48,29 +48,28 @@ When the **software requirements** are clearly defined, we can design the produc
 The result of this stage is **DDS Document** or **Design Document Specification**:
 
 1. **BPMN Diagram**
-2. **State Diagram**
-3. **Architecture Diagram**
+2. **Architecture Diagram**
     1. Client Server
     2. Service Oriented
     3. Microservice
     4. Active Record
     5. Repository
     6. Pipeline
-4. **Model Diagram**
+3. **Model Diagram**
     1. Loopback
     2. TypeORM
     3. Hasura
     4. Entity Framework
-5. **Access Specification**
+4. **Access Specification**
     1. Decision Matrix
-    1. Preset Rule
-    1. Row Permission
-    1. Field Permission
-6. **API Specification**
+    2. Preset Rule
+    3. Row Permission
+    4. Field Permission
+5. **API Specification**
     1. OpenAPI Schema
     2. GraphQL Schema
     3. gRPC Schema
-7. **UI Specification**
+6. **UI Specification**
     1. Wireframe (`Low fidelity`): AdobeXD, Sketch
     2. Prototype (`High fidelity`): AdobeXD, Sketch
 
