@@ -8,6 +8,8 @@
     2. [Mermaid](https://mermaid-js.github.io/mermaid/)
     3. [Visual Paradigm](https://www.visual-paradigm.com/)
 
+---
+
 ## Domain Models (ER Diagram)
 
 <!--prettier-ignore-->

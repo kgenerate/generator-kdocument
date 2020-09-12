@@ -21,15 +21,9 @@
 
     ![Access Diagram](resources/access_diagram.svg)
 
-<!--prettier-ignore-->
-!!! danger "Operation Types"
-    There are three main types of **Operations**:
-
-    1. **Full CRUD**: `CreateAll`, `ReadAll`, `UpdateAll`, `DeleteAll`
-    2. **Filter CRUD**: `CreateMine`, `ReadTheir`, `UpdateNonZero`, ...
-    3. **Field CRUD**: `CreateName`, `ReadProfile`, `UpdateAge`, ...
-
     The logic of this **Operations** can implement in application
+
+---
 
 ## Access Control Matrix (ACM)
 
@@ -41,6 +35,18 @@
 | **Role1**      | -       | ReadMine           | -       | -       | ReadAll            | -        |
 | **Role2**      | -       | ReadMine           | -       | -       | ReadAll            | -        |
 | **Role3**      | -       | ReadMine           | -       | -       | ReadAll            | -        |
+
+---
+
+## Access Operations
+
+<!--prettier-ignore-->
+!!! danger "Operation Types"
+    There are three main types of **Operations**:
+
+    1. **Full CRUD**: `CreateAll`, `ReadAll`, `UpdateAll`, `DeleteAll`
+    2. **Filter CRUD**: `CreateMine`, `ReadTheir`, `UpdateNonZero`, ...
+    3. **Field CRUD**: `CreateName`, `ReadProfile`, `UpdateAge`, ...
 
 -   **ReadAll**: Read all items
 -   **CreateAll**: Create all items
