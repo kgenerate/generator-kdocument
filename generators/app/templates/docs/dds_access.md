@@ -1,34 +1,58 @@
 # Access Specification
 
--   **Confidentiality**: a user should be able to deny other users read access to his files
--   **Integrity**: a user should be able to protect his files from modification or deletion by other users
-
 <!--prettier-ignore-->
 !!! tip "Access Designing"
-    There are three main concepts in **Access Designing**:
+    There are many main concepts in **Access Designing**:
 
-    -   **Subject (Principal)**: User, Group, ...
-    -   **Object**: Resources, Files, ...
-    -   **Action (Operation)**: Create, Read, Update, Delete, ...
-    -   **Enforcer (Reference Monitor)**: Access Server, grants or denies access requests
-    -   **Permission**:
-    -   **Policy**:
+    -   **Subject (Principal)**: User, Group, Role, ...
+    -   **Object (Resource)**: Files, Tables, Printers, ...
+    -   **Operation (Action)**: Create, Read, Update, Delete, ...
+    -   **Permission (Scope)**: An specific `operation` on specific `object`
+    -   **Policy (Rule)**: An specific `permission` assigned to specific `subject`
+    -   **Reference Monitor (Enforcer)**: Access Server, grants or denies access requests
 
     ---
 
-    -   **Access Control Matrix (ACM)**: A matirix show `who(subjects)` can act `what(actions)` on `which(object)`
-    -   **Capability Table (CT)**: All `actions` of a `subject` per each `object` (**rows of ACM**)
-    -   **Access Control List (ACL)**: All `actions` of an `object` per each `subject` (**columns of ACM**)
+    -   **Access Control Matrix (ACM)**: A matirix show `who(subjects)` can act `what(operation)` on `which(object)`
+    -   **Capability Table (CT)**: All `operation` of a `subject` per each `object` (**rows of ACM**)
+    -   **Access Control List (ACL)**: All `operation` of an `object` per each `subject` (**columns of ACM**)
+
+    ---
+
+    ![Access Diagram](resources/access_diagram.svg)
+
+<!--prettier-ignore-->
+!!! danger "Operation Types"
+    There are three main types of **Operations**:
+
+    1. **Full CRUD**: `CreateAll`, `ReadAll`, `UpdateAll`, `DeleteAll`
+    2. **Filter CRUD**: `CreateMine`, `ReadTheir`, `UpdateNonZero`, ...
+    3. **Field CRUD**: `CreateName`, `ReadProfile`, `UpdateAge`, ...
+
+    The logic of this **Operations** can implement in application
 
 ## Access Control Matrix (ACM)
 
-| Subject\Object | File1 | File2 | File3 | Folder1 | Folder2 | Folder 3 |
-| -------------- | ----- | ----- | ----- | ------- | ------- | -------- |
-| **User1**      | r,w   | r     | r,w   | r       | r,w     | r        |
-| **User2**      | r     | r     | r     | r       | r,w     | r        |
-| **User3**      | -     | r,w   | r     | r       | r,w     | r        |
-| **Role1**      | -     | r     | -     | -       | r       | -        |
-| **Role2**      | -     | r     | -     | -       | r       | -        |
-| **Role3**      | -     | r     | -     | -       | r       | -        |
+| Subject\Object | File1   | File2              | File3   | Folder1 | Folder2            | Folder 3 |
+| -------------- | ------- | ------------------ | ------- | ------- | ------------------ | -------- |
+| **User1**      | ReadAll | ReadAll            | ReadAll | ReadAll | ReadAll, CreateAll | ReadAll  |
+| **User2**      | ReadAll | ReadAll            | ReadAll | ReadAll | ReadAll, CreateAll | ReadAll  |
+| **User3**      | -       | ReadAll, CreateAll | ReadAll | ReadAll | ReadAll, CreateAll | ReadAll  |
+| **Role1**      | -       | ReadMine           | -       | -       | ReadAll            | -        |
+| **Role2**      | -       | ReadMine           | -       | -       | ReadAll            | -        |
+| **Role3**      | -       | ReadMine           | -       | -       | ReadAll            | -        |
+
+-   **ReadAll**: Read all items
+-   **CreateAll**: Create all items
+-   **ReadMine**: Read item with `userId=$USER_ID`
+
+---
 
 ## Preset Rules
+
+1. **File1-CreateAll**:
+    - **FileID**: uuid4()
+    - **FileDate**: now()
+2. **File1-UpdateAll**:
+    1. **FileID**: null
+    2. **FileDate**: now()
