@@ -13,7 +13,7 @@
 
     ---
 
-    -   **Access Control Matrix (ACM)**: A matirix show `who(subjects)` can act `what(operation)` on `which(object)`
+    -   **Access Control Matrix (ACM)**: A matirix show `who(subject)` can act `what(operation)` on `which(object)`
     -   **Capability Table (CT)**: All `operation` of a `subject` per each `object` (**rows of ACM**)
     -   **Access Control List (ACL)**: All `operation` of an `object` per each `subject` (**columns of ACM**)
 
@@ -38,11 +38,11 @@
 
 ---
 
-## Access Operations
+## Access Permissions
 
 <!--prettier-ignore-->
-!!! danger "Operation Types"
-    There are three main types of **Operations**:
+!!! danger "Permission Types"
+    There are three main types of **Permissions**:
 
     1. **Full CRUD**: `CreateAll`, `ReadAll`, `UpdateAll`, `DeleteAll`
     2. **Filter CRUD**: `CreateMine`, `ReadTheir`, `UpdateNonZero`, ...

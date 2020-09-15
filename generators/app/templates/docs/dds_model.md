@@ -78,6 +78,10 @@ Item "1" --> "1" User : seller
 
 ---
 
+## Domain into Data
+
+---
+
 ## System Roles
 
 1. **Admin**
