@@ -4,7 +4,7 @@
 ![Travis](https://img.shields.io/travis/kgenerate/generator-kdocument/master)
 ![GitHub](https://img.shields.io/github/license/kgenerate/generator-kdocument)
 
-Yeoman **KoLiBer Document** project generator
+Yeoman **KoLiBer Document** generator
 
 ---
 

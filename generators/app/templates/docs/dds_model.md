@@ -2,11 +2,14 @@
 
 <!--prettier-ignore-->
 !!! tip "Model Designing"
-    For designing the **Model** we use these tools:
+    For designing **Models** we must do these steps:
 
-    1. [draw.io](https://app.diagrams.net/)
-    2. [Mermaid](https://mermaid-js.github.io/mermaid/)
-    3. [Visual Paradigm](https://www.visual-paradigm.com/)
+    1. Design the **Model** for business
+    2. Define models **Properties**
+    3. Define models **Key Relations** (**belongsTo**)
+    4. Define models **Business Relations** (**hasOne**, **hasMany**)
+    5. Integrate business models into **Abstract Model**
+    6. Define **System Roles** based on **User Business Models**
 
 ---
 

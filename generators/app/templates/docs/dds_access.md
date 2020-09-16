@@ -1,5 +1,10 @@
 # Access Specification
 
+1. Define **Decision Matrices** for each model
+2. Define **Preset Rules** per model
+
+-   These rules will **force rewrite** some fields of entities, for example users cannot set **CreateDate**, instead this field will filled automatically
+
 <!--prettier-ignore-->
 !!! tip "Access Designing"
     There are many main concepts in **Access Designing**:

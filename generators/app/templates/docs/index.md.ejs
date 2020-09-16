@@ -1,13 +1,13 @@
-# <%= answers.projectName %>
+# <%= app.name %>
 
-<%= answers.projectDescription %>
+<%= app.description %>
 
 ---
 
 ## Links
 
 <%= 
-    answers.links.map(item => 
+    (locals.links || []).map(item => 
         `-   [${item.label}](${item.url})`
     ).join("\n") 
 %>
