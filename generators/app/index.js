@@ -125,12 +125,12 @@ module.exports = class extends Generator {
             this.destinationPath("docs/resources/bpmn_diagram.png")
         );
         this.fs.copy(
-            this.templatePath("docs/resources/architecture_diagram.png"),
-            this.destinationPath("docs/resources/architecture_diagram.png")
+            this.templatePath("docs/resources/architecture_diagram.svg"),
+            this.destinationPath("docs/resources/architecture_diagram.svg")
         );
         this.fs.copy(
-            this.templatePath("docs/resources/access_diagram.png"),
-            this.destinationPath("docs/resources/access_diagram.png")
+            this.templatePath("docs/resources/access_diagram.svg"),
+            this.destinationPath("docs/resources/access_diagram.svg")
         );
         this.fs.copy(
             this.templatePath("docs/resources/ui_diagram.png"),

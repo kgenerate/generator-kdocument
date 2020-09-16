@@ -33,7 +33,10 @@ module.exports = class extends Generator {
     }
 
     async configuring() {
-        this.config.set("links", [...this.config.get("links"), this.answers]);
+        this.config.set("links", [
+            ...(this.config.get("links") || []),
+            this.answers,
+        ]);
     }
 
     async writing() {}
