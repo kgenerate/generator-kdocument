@@ -60,7 +60,7 @@ The result of this stage is **DDS Document** or **Design Document Specification*
     5. Repository
     6. Pipeline
 4. **Access Specification**
-    1. Access Control Matrix
+    1. Access Control Matrices
     2. Access Permissions
     3. Preset Rules
 5. **UI Specification**
