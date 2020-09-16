@@ -73,11 +73,73 @@ module.exports = class extends Generator {
     }
 
     async writing() {
-        this.fs.copyTpl(
-            this.templatePath(".gitignore.ejs"),
-            this.destinationPath(".gitignore"),
-            this.config.getAll()
+        /**
+         * Copy files
+         */
+        this.fs.copy(
+            this.templatePath(".gitignore"),
+            this.destinationPath(".gitignore")
         );
+        this.fs.copy(
+            this.templatePath("CHANGELOG.md"),
+            this.destinationPath("CHANGELOG.md")
+        );
+        this.fs.copy(
+            this.templatePath("CONTRIBUTING.md"),
+            this.destinationPath("CONTRIBUTING.md")
+        );
+        this.fs.copy(
+            this.templatePath("docs/srs_user.md"),
+            this.destinationPath("docs/srs_user.md")
+        );
+        this.fs.copy(
+            this.templatePath("docs/srs_system.md"),
+            this.destinationPath("docs/srs_system.md")
+        );
+        this.fs.copy(
+            this.templatePath("docs/dds_bpmn.md"),
+            this.destinationPath("docs/dds_bpmn.md")
+        );
+        this.fs.copy(
+            this.templatePath("docs/dds_model.md"),
+            this.destinationPath("docs/dds_model.md")
+        );
+        this.fs.copy(
+            this.templatePath("docs/dds_architecture.md"),
+            this.destinationPath("docs/dds_architecture.md")
+        );
+        this.fs.copy(
+            this.templatePath("docs/dds_access.md"),
+            this.destinationPath("docs/dds_access.md")
+        );
+        this.fs.copy(
+            this.templatePath("docs/dds_ui.md"),
+            this.destinationPath("docs/dds_ui.md")
+        );
+        this.fs.copy(
+            this.templatePath("docs/resources/usecase_diagram.png"),
+            this.destinationPath("docs/resources/usecase_diagram.png")
+        );
+        this.fs.copy(
+            this.templatePath("docs/resources/bpmn_diagram.png"),
+            this.destinationPath("docs/resources/bpmn_diagram.png")
+        );
+        this.fs.copy(
+            this.templatePath("docs/resources/architecture_diagram.png"),
+            this.destinationPath("docs/resources/architecture_diagram.png")
+        );
+        this.fs.copy(
+            this.templatePath("docs/resources/access_diagram.png"),
+            this.destinationPath("docs/resources/access_diagram.png")
+        );
+        this.fs.copy(
+            this.templatePath("docs/resources/ui_diagram.png"),
+            this.destinationPath("docs/resources/ui_diagram.png")
+        );
+
+        /**
+         * Copy templates
+         */
         this.fs.copyTpl(
             this.templatePath("README.md.ejs"),
             this.destinationPath("README.md"),
@@ -86,16 +148,6 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath("LICENSE.md.ejs"),
             this.destinationPath("LICENSE.md"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("CHANGELOG.md.ejs"),
-            this.destinationPath("CHANGELOG.md"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("CONTRIBUTING.md.ejs"),
-            this.destinationPath("CONTRIBUTING.md"),
             this.config.getAll()
         );
         this.fs.copyTpl(
@@ -108,36 +160,11 @@ module.exports = class extends Generator {
             this.destinationPath(".gitlab-ci.yml"),
             this.config.getAll()
         );
-        // this.fs.copyTpl(
-        //     this.templatePath("docs/index.md.ejs"),
-        //     this.destinationPath("docs/index.md"),
-        //     this.config.getAll()
-        // );
-        // this.fs.copyTpl(
-        //     this.templatePath("docs/srs_user.md.ejs"),
-        //     this.destinationPath("docs/srs_user.md"),
-        //     this.config.getAll()
-        // );
-        // this.fs.copyTpl(
-        //     this.templatePath("docs/srs_system.md.ejs"),
-        //     this.destinationPath("docs/srs_system.md"),
-        //     this.config.getAll()
-        // );
-        // this.fs.copyTpl(
-        //     this.templatePath("docs/dds_model.md.ejs"),
-        //     this.destinationPath("docs/dds_model.md"),
-        //     this.config.getAll()
-        // );
-        // this.fs.copyTpl(
-        //     this.templatePath("docs/dds_architecture.md.ejs"),
-        //     this.destinationPath("docs/dds_architecture.md"),
-        //     this.config.getAll()
-        // );
-        // this.fs.copyTpl(
-        //     this.templatePath("docs/dds_access.md.ejs"),
-        //     this.destinationPath("docs/dds_access.md"),
-        //     this.config.getAll()
-        // );
+        this.fs.copyTpl(
+            this.templatePath("docs/index.md.ejs"),
+            this.destinationPath("docs/index.md"),
+            this.config.getAll()
+        );
     }
 
     async install() {}
