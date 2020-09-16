@@ -1,19 +1,6 @@
 # Model Diagram
 
-<!--prettier-ignore-->
-!!! tip "Model Designing"
-    For designing **Models** we must do these steps:
-
-    1. Design the **Model** for business
-    2. Define models **Properties**
-    3. Define models **Key Relations** (**belongsTo**)
-    4. Define models **Business Relations** (**hasOne**, **hasMany**)
-    5. Integrate business models into **Abstract Model**
-    6. Define **System Roles** based on **User Business Models**
-
----
-
-## Domain Models (ER Diagram)
+## Domain Model (ER Diagram)
 
 <!--prettier-ignore-->
 !!! tip "Domain Model Designing"
@@ -38,7 +25,7 @@ Item ||--o| Seller : sellerId
 
 ---
 
-## Data Models (Class Diagram)
+## Data Model (Class Diagram)
 
 <!--prettier-ignore-->
 !!! tip "Data Model Designing"
@@ -82,6 +69,35 @@ Item "1" --> "1" User : seller
 ---
 
 ## Domain into Data
+
+<!--prettier-ignore-->
+!!! tip "Domain into Data"
+    For testing the **Data Models** validity, for each **Domain Model** try to fit it into **Data Models** and draw involved models and properties
+
+### Buyer
+
+```mermaid
+classDiagram
+
+class User {
+    String username
+    String password
+    String email
+    String name
+    int age
+}
+class Basket {
+    int cost
+    int count
+    Date date
+    String buyerId
+}
+
+User "1" --> "n" Basket : buyedBaskets
+User "1" --> "1" Basket : currentBasket
+
+Basket "1" --> "1" User : buyer
+```
 
 ---
 
