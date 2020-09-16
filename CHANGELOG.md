@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.0
+
+-   **Feat**: add `Domain Model` into model diagram
+-   **Feat**: add `Architecture` diagram
+-   **Feat**: add `Access Specification` intro
+-   **Feat**: add `Access Permissions` section
+-   **Refactor**: `CONTRIBUTING.md` file
+
 ## v0.2.0
 
 -   **Feat**: replace `inquirer-recursive` with `promptLoop` method

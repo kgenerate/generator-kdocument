@@ -1,7 +1,7 @@
 {
     "name": "generator-kdocument",
-    "version": "0.2.0",
-    "description": "KoLiBer Document project generator",
+    "version": "1.0.0",
+    "description": "KoLiBer Document app generator",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/kgenerate/generator-kdocument.git"
@@ -21,7 +21,6 @@
     "dependencies": {
         "chalk": "^4.1.0",
         "inquirer-datepicker": "^2.0.0",
-        "inquirer-loop": "^0.3.0",
         "yeoman-generator": "^4.11.0"
     }
 }
