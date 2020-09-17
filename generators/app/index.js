@@ -73,97 +73,22 @@ module.exports = class extends Generator {
     }
 
     async writing() {
-        /**
-         * Copy files
-         */
-        this.fs.copy(
-            this.templatePath(".gitignore"),
-            this.destinationPath(".gitignore")
-        );
-        this.fs.copy(
-            this.templatePath("CHANGELOG.md"),
-            this.destinationPath("CHANGELOG.md")
-        );
-        this.fs.copy(
-            this.templatePath("CONTRIBUTING.md"),
-            this.destinationPath("CONTRIBUTING.md")
-        );
-        this.fs.copy(
-            this.templatePath("docs/srs_user.md"),
-            this.destinationPath("docs/srs_user.md")
-        );
-        this.fs.copy(
-            this.templatePath("docs/srs_system.md"),
-            this.destinationPath("docs/srs_system.md")
-        );
-        this.fs.copy(
-            this.templatePath("docs/dds_bpmn.md"),
-            this.destinationPath("docs/dds_bpmn.md")
-        );
-        this.fs.copy(
-            this.templatePath("docs/dds_model.md"),
-            this.destinationPath("docs/dds_model.md")
-        );
-        this.fs.copy(
-            this.templatePath("docs/dds_architecture.md"),
-            this.destinationPath("docs/dds_architecture.md")
-        );
-        this.fs.copy(
-            this.templatePath("docs/dds_access.md"),
-            this.destinationPath("docs/dds_access.md")
-        );
-        this.fs.copy(
-            this.templatePath("docs/dds_ui.md"),
-            this.destinationPath("docs/dds_ui.md")
-        );
-        this.fs.copy(
-            this.templatePath("docs/resources/usecase_diagram.png"),
-            this.destinationPath("docs/resources/usecase_diagram.png")
-        );
-        this.fs.copy(
-            this.templatePath("docs/resources/bpmn_diagram.png"),
-            this.destinationPath("docs/resources/bpmn_diagram.png")
-        );
-        this.fs.copy(
-            this.templatePath("docs/resources/architecture_diagram.svg"),
-            this.destinationPath("docs/resources/architecture_diagram.svg")
-        );
-        this.fs.copy(
-            this.templatePath("docs/resources/access_diagram.svg"),
-            this.destinationPath("docs/resources/access_diagram.svg")
-        );
-        this.fs.copy(
-            this.templatePath("docs/resources/ui_diagram.png"),
-            this.destinationPath("docs/resources/ui_diagram.png")
-        );
-
-        /**
-         * Copy templates
-         */
+        this.fs.copy(this.templatePath("**/*"), this.destinationPath("."), {
+            globOptions: {
+                dot: true,
+                ignore: "**/*.ejs",
+            },
+        });
         this.fs.copyTpl(
-            this.templatePath("README.md.ejs"),
-            this.destinationPath("README.md"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("LICENSE.md.ejs"),
-            this.destinationPath("LICENSE.md"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("mkdocs.yml.ejs"),
-            this.destinationPath("mkdocs.yml"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath(".gitlab-ci.yml.ejs"),
-            this.destinationPath(".gitlab-ci.yml"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("docs/index.md.ejs"),
-            this.destinationPath("docs/index.md"),
-            this.config.getAll()
+            this.templatePath("**/*.ejs"),
+            this.destinationPath("."),
+            this.config.getAll(),
+            undefined,
+            {
+                globOptions: {
+                    dot: true,
+                },
+            }
         );
     }
 
