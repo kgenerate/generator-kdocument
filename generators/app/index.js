@@ -76,7 +76,7 @@ module.exports = class extends Generator {
         this.fs.copy(this.templatePath("**/*"), this.destinationPath("."), {
             globOptions: {
                 dot: true,
-                ignore: "**/*.ejs",
+                ignore: ["**/*.ejs"],
             },
         });
         this.fs.copyTpl(
