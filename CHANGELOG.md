@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.0
+
+-   **Fix**: remove `space` before, after ejs loops
+-   **Fix**: change ejs loops into `forEach`
+
 ## v1.0.0
 
 -   **Feat**: add `Domain Model` into model diagram
