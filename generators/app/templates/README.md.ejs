@@ -30,9 +30,9 @@ mkdocs serve
 
 ## Links
 
-<% (locals.links || []).forEach((link) => { -%>
+<%_ (locals.links || []).forEach((link) => { _%>
 -   [<%= link.label %>](<%= link.url %>)
-<% }); -%>
+<%_ }); _%>
 
 ## License
 
