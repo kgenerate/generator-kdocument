@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.0
+
+-   **Fix**: change copy per file to copy all files using `glob`
+
 ## v1.1.0
 
 -   **Fix**: remove `space` before, after ejs loops
