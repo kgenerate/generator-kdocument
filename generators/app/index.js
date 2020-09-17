@@ -73,40 +73,22 @@ module.exports = class extends Generator {
     }
 
     async writing() {
-        this.fs.copy(this.templatePath("."), this.destinationPath("."));
-
-        /**
-         * Copy templates
-         */
+        this.fs.copy(this.templatePath("**/*"), this.destinationPath("."), {
+            globOptions: {
+                dot: true,
+                ignore: "**/*.ejs",
+            },
+        });
         this.fs.copyTpl(
-            this.templatePath(".gitignore.ejs"),
-            this.destinationPath(".gitignore"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("README.md.ejs"),
-            this.destinationPath("README.md"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("LICENSE.md.ejs"),
-            this.destinationPath("LICENSE.md"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("mkdocs.yml.ejs"),
-            this.destinationPath("mkdocs.yml"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath(".gitlab-ci.yml.ejs"),
-            this.destinationPath(".gitlab-ci.yml"),
-            this.config.getAll()
-        );
-        this.fs.copyTpl(
-            this.templatePath("docs/index.md.ejs"),
-            this.destinationPath("docs/index.md"),
-            this.config.getAll()
+            this.templatePath("**/*.ejs"),
+            this.destinationPath("."),
+            this.config.getAll(),
+            undefined,
+            {
+                globOptions: {
+                    dot: true,
+                },
+            }
         );
     }
 
