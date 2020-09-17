@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3.0
+
+-   **Fix**: glob ignore in copy, change to array
+
 ## v1.2.0
 
 -   **Fix**: change copy per file to copy all files using `glob`
