@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.4.0
+
+-   **clean**: remove `old resources` and `templates`
+
 ## v1.3.0
 
 -   **Fix**: glob ignore in copy, change to array
