@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.6.0
+
+-   **fix**: add `appName` variable to `mkdocs`
+
 ## v1.5.0
 
 -   **fix**: `disable test` step in ci file
