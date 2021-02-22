@@ -18,7 +18,6 @@ npm install --global yo generator-kdocument
 
 ```sh
 yo kdocument
-yo kdocument:link
 ```
 
 ---

@@ -9,21 +9,18 @@
 
 ## Dependencies
 
-1. `python3`
-2. `python3-pip`
-3. `mkdocs`
-4. `mkdocs-material`
+1. `docker`
 
 ## Building
 
 ```sh
-mkdocs build
+docker run --rm -it -v "$(pwd):/docs" squidfunk/mkdocs-material build
 ```
 
 ## Starting
 
 ```sh
-mkdocs serve
+docker run --rm -it -p 8000:8000 -v "$(pwd):/docs" squidfunk/mkdocs-material
 ```
 
 ---

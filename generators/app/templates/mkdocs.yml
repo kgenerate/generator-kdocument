@@ -1,15 +1,6 @@
-site_name: <%= app.name %>
+site_name: Algorithm
 nav:
-    - Intro: index.md
-    - SRS Document:
-          - User Requirements: srs_user.md
-          - System Requirements: srs_system.md
-    - DDS Document:
-          - BPMN Diagram: dds_bpmn.md
-          - Model Diagram: dds_model.md
-          - Architecture Diagram: dds_architecture.md
-          - Access Specification: dds_access.md
-          - UI Specification: dds_ui.md
+    - Intro: README.md
 theme:
     name: "material"
 markdown_extensions:
@@ -20,7 +11,8 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.snippets
     - pymdownx.tasklist
-    - pymdownx.arithmatex
+    - pymdownx.arithmatex:
+          generic: true
     - pymdownx.inlinehilite
     - pymdownx.highlight:
           linenums: true
