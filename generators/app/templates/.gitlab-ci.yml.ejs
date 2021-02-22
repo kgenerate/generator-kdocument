@@ -2,15 +2,13 @@ stages:
     - pages
 
 pages:
-    image: python:alpine
+    image:
+        name: squidfunk/mkdocs-material
+        entrypoint: [""]
     stage: pages
     artifacts:
         paths:
             - public
-    before_script:
-        - apk add build-base
-        - pip3 install mkdocs
-        - pip3 install mkdocs-material
     script:
         - mkdocs build
         - mv site public
