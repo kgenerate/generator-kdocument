@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.0
+
+-   **fix**: `disable test` step in ci file
+
 ## v1.4.0
 
 -   **clean**: remove `old resources` and `templates`
