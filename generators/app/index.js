@@ -1,7 +1,9 @@
 const Generator = require("yeoman-generator");
 const Chalk = require("chalk");
 
-module.exports = class extends Generator {
+module.exports = class extends (
+    Generator
+) {
     async initializing() {
         this.env.adapter.promptModule.registerPrompt(
             "datepicker",
@@ -10,7 +12,7 @@ module.exports = class extends Generator {
 
         this.log(
             Chalk.blue(
-                "Hi there, this generator is used for KoLiBer Document app initialization"
+                "Hi there, this generator is used for KoLiBer Document project initialization"
             )
         );
     }
@@ -35,22 +37,6 @@ module.exports = class extends Generator {
                 message: `Enter app ${Chalk.red("begin date")}:`,
                 format: ["Y", "/", "MM", "/", "DD"],
                 default: this.config.getPath("app.beginDate") || new Date(),
-            },
-            {
-                type: "list",
-                name: "lifeCycle",
-                message: `Enter app ${Chalk.red(
-                    "SDLC"
-                )} (Software Development Lifecycle):`,
-                choices: [
-                    "Waterfall",
-                    "Iterative",
-                    "Sprial",
-                    "VShaped",
-                    "BigBang",
-                    "Agile",
-                ],
-                default: this.config.getPath("app.lifeCycle") || "Agile",
             },
             {
                 type: "input",
@@ -95,6 +81,8 @@ module.exports = class extends Generator {
     async install() {}
 
     async end() {
-        this.log(Chalk.green("KoLiBer Document app initialized successfully!"));
+        this.log(
+            Chalk.green("KoLiBer Document project initialized successfully!")
+        );
     }
 };
